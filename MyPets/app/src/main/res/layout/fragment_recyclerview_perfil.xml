@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_marginTop="50dp">
+
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+
+        android:id="@+id/imgFotoPerro"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/perro2"
+        app:civ_border_color="#2196F3"
+        app:civ_border_width="1dp"
+        app:civ_shadow="true"
+        app:civ_shadow_color="#2196F3"
+        app:civ_shadow_radius="1dp">
+
+    </com.mikhaellopez.circularimageview.CircularImageView>
+
+</LinearLayout>
+
+    <TextView
+        android:id="@+id/textTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/NombrePerro"
+        android:layout_below="@+id/actionbar"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:layout_marginTop="200dp">
+
+    </TextView>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMascotasFrag"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:numColumns="auto_fit"
+            android:verticalSpacing="10dp"
+            android:horizontalSpacing="10dp"
+            android:layout_marginTop="250dp"/>
+
+
+</RelativeLayout>
+

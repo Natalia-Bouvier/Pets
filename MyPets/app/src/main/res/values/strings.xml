@@ -1,0 +1,22 @@
+<resources>
+
+
+    <string name="Nombre">Nombre</string>
+    <string name="Cont">0</string>
+    <string name="menu">Contacto</string>
+    <string name="menu1">Acerca de</string>
+    <string name="fav">My Pets</string>
+    <string name="titulo">Contactanos!</string>
+    <string name="email">Email</string>
+    <string name="descrip">Mensaje</string>
+    <string name="boton">Enviar comentario</string>
+    <string name="acerca">Acerca de mi </string>
+    <string name="acercaNom">Esta seria mi biografia, la que en los ultimos dias se resume en tratar de cumplir con los plazos de este curso el cual me tiene medio loca, ¿a vos tambien?</string>
+    <string name="NombrePerro">Bonn</string>
+
+
+
+
+
+
+</resources>

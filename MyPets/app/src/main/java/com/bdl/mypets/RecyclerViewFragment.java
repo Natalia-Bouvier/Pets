@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bdl.mypets.db.ConstructorPets;
+
 import java.util.ArrayList;
 
 public class RecyclerViewFragment extends Fragment {
@@ -38,19 +40,23 @@ public class RecyclerViewFragment extends Fragment {
     }
 
     public void inicializaAdaptador (){
-        MascotaAdaptador adaptador = new MascotaAdaptador(mascotas);
+        MascotaAdaptador adaptador = new MascotaAdaptador(mascotas, getContext());
         ListaMascotas.setAdapter(adaptador);
     }
 
     public void inicializarListaMascotas () {
 
-        mascotas = new ArrayList<Datos_Mascotas>();
+       mascotas = new ArrayList<Datos_Mascotas>();
 
-        mascotas.add(new Datos_Mascotas("Labrador",R.drawable.perro6));
-        mascotas.add(new Datos_Mascotas("Men in black",R.drawable.perro1));
-        mascotas.add(new Datos_Mascotas("Rotwailer",R.drawable.perro2));
-        mascotas.add(new Datos_Mascotas("Ovejero",R.drawable.perro3));
-        mascotas.add(new Datos_Mascotas("Bouvier de Flandes",R.drawable.perro5));
+        ConstructorPets ctrPets = new ConstructorPets(getContext());
+
+        mascotas.addAll(ctrPets.obtenerDatos());
+
+        //mascotas.add(new Datos_Mascotas("Labrador",R.drawable.perro6,1));
+        //mascotas.add(new Datos_Mascotas("Men in black",R.drawable.perro1,2));
+       // mascotas.add(new Datos_Mascotas("Rotwailer",R.drawable.perro2,3));
+       // mascotas.add(new Datos_Mascotas("Ovejero Aleman",R.drawable.perro3,4));
+        //mascotas.add(new Datos_Mascotas("Bouvier de Berna",R.drawable.perro5,5));
 
     }
 }

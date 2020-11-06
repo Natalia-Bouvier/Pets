@@ -1,5 +1,6 @@
 package com.bdl.mypets;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,16 +9,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bdl.mypets.db.ConstantesBD;
+import com.bdl.mypets.db.ConstructorPets;
+
 import java.util.ArrayList;
 
 public class MascotaAdaptador  extends RecyclerView.Adapter <MascotaAdaptador.MascotasViewHolder>{
 
     ArrayList<Datos_Mascotas> mascotas;
+    Context context;
 
-
-    public MascotaAdaptador (ArrayList<Datos_Mascotas> mascotas){
+    public MascotaAdaptador (ArrayList<Datos_Mascotas> mascotas, Context context){
         this.mascotas = mascotas;
-
+        this.context = context;
     }
 
     @Override
@@ -32,15 +36,16 @@ public class MascotaAdaptador  extends RecyclerView.Adapter <MascotaAdaptador.Ma
         final Datos_Mascotas mascota = mascotas.get(position);
         mascotasViewHolder.imgFoto.setImageResource(mascota.getFoto());
         mascotasViewHolder.tvNombre.setText(mascota.getNombre_mascota());
+        mascotasViewHolder.tvCont.setText(String.valueOf(mascota.getFav()));
         mascotasViewHolder.btLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int contador = mascota.getFav();
                 mascota.setFav(++contador);
                 mascotasViewHolder.tvCont.setText(String.valueOf(contador));
-
+                ConstructorPets ctrPets = new ConstructorPets(context);
+                ctrPets.dalLike(mascota);
             }
-
         });
         mascotasViewHolder.imgFavorito.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +77,6 @@ public class MascotaAdaptador  extends RecyclerView.Adapter <MascotaAdaptador.Ma
             tvNombre = (TextView) itemView.findViewById(R.id.tvNombre);
             tvCont = (TextView) itemView.findViewById(R.id.tvCont);
             imgFavorito = (ImageView) itemView.findViewById(R.id.imgFavorito);
-
         }
     }
 

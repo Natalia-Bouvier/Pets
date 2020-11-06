@@ -7,6 +7,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.bdl.mypets.db.ConstantesBD;
+import com.bdl.mypets.db.ConstructorPets;
+
 import java.util.ArrayList;
 
 public class Favorito extends AppCompatActivity {
@@ -36,18 +39,21 @@ public class Favorito extends AppCompatActivity {
     }
 
     public void iniAdaptador (){
-        MascotaAdaptador adaptador = new MascotaAdaptador(mas);
+        MascotaAdaptador adaptador = new MascotaAdaptador(mas, getApplicationContext());
         LisMascotas.setAdapter(adaptador);
     }
 
     public void iniListaMascotas () {
 
         mas = new ArrayList<Datos_Mascotas>();
-        mas.add(new Datos_Mascotas("Labrador",R.drawable.perro6));
-        mas.add(new Datos_Mascotas("Men in black",R.drawable.perro1));
-        mas.add(new Datos_Mascotas("Rotwailer",R.drawable.perro2));
-        mas.add(new Datos_Mascotas("Ovejero",R.drawable.perro3));
-        mas.add(new Datos_Mascotas("Bouvier de Flandes",R.drawable.perro5));
+        ConstructorPets ctrPets = new ConstructorPets(getApplicationContext());
+        mas.addAll(ctrPets.obtenerDatosTop5());
+
+        //mas.add(new Datos_Mascotas("Labrador",R.drawable.perro6,1));
+        //mas.add(new Datos_Mascotas("Men in black",R.drawable.perro1,2));
+       // mas.add(new Datos_Mascotas("Rotwailer",R.drawable.perro2,3));
+       // mas.add(new Datos_Mascotas("Ovejero",R.drawable.perro3,4));
+        //mas.add(new Datos_Mascotas("Bouvier de Flandes",R.drawable.perro5,5));
 
     }
 
